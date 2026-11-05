@@ -1,0 +1,77 @@
+﻿# 만족스러운 은퇴 (Content Abdication)
+# 디시전을 누르면 본인에게 '만족(content)' 트레잇을 붙이고,
+# 금화와 아티팩트를 후계자에게 넘긴 뒤 퇴위(depose)하여 모든 작위를 후계자에게 넘긴다.
+
+content_abdication_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_misc.dds"
+	}
+	desc = content_abdication_decision_desc
+	selection_tooltip = content_abdication_decision_tooltip
+	confirm_text = content_abdication_decision_confirm
+
+	ai_check_interval = 0
+
+	is_shown = {
+		is_ruler = yes
+		is_landed = yes
+	}
+
+	is_valid = {
+		exists = primary_heir
+		primary_heir = {
+			is_alive = yes
+			# 다른 가문 후계자에게 넘기면 플레이어는 게임 오버가 되므로 같은 가문만 허용
+			dynasty = root.dynasty
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available = yes
+	}
+
+	effect = {
+		primary_heir = { save_scope_as = content_abdication_heir }
+
+		# 1) 본인에게 만족 트레잇 부여 (반대 트레잇인 야심은 먼저 제거)
+		if = {
+			limit = { has_trait = ambitious }
+			remove_trait = ambitious
+		}
+		add_trait = content
+
+		# 2) 금화를 전부 후계자에게 넘김
+		if = {
+			limit = { gold > 0 }
+			pay_short_term_gold = {
+				target = scope:content_abdication_heir
+				gold = root.gold
+			}
+		}
+
+		# 3) 아티팩트를 전부 후계자에게 넘김
+		every_character_artifact = {
+			set_owner = {
+				target = scope:content_abdication_heir
+				history = {
+					type = given
+					actor = root
+					recipient = scope:content_abdication_heir
+				}
+			}
+		}
+
+		# 4) 퇴위: 모든 작위가 계승법에 따라 후계자에게 넘어가고, 플레이어는 후계자로 이어서 플레이
+		custom_tooltip = content_abdication_decision_effect_tt
+		depose = yes
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}

@@ -1,0 +1,6 @@
+﻿l_korean:
+ content_abdication_decision:0 "만족스러운 은퇴"
+ content_abdication_decision_desc:0 "나는 이룰 만큼 이루었다. 이제 짐을 내려놓고 [primary_heir.GetFirstName]에게 모든 것을 물려줄 때다."
+ content_abdication_decision_tooltip:0 "모든 것을 후계자에게 넘기고 만족스럽게 물러납니다."
+ content_abdication_decision_confirm:0 "이제 물러나겠다"
+ content_abdication_decision_effect_tt:0 "모든 작위, 금화, 아티팩트가 후계자에게 넘어가며, 후계자로 이어서 플레이합니다."
