@@ -15,8 +15,10 @@
 - 투옥 상태가 아니고 행동 가능한 상태여야 함
 - AI는 이 결정을 사용하지 않음
 
+모드 파일은 모두 `ck3_content_abdication/` 폴더 안에 있습니다.
+
 ### 설치
-`Documents/Paradox Interactive/Crusader Kings III/mod/` 폴더에 다음 두 개를 복사합니다.
+`ck3_content_abdication/` 폴더 **안에 있는** 다음 두 개를 `Documents/Paradox Interactive/Crusader Kings III/mod/` 폴더에 복사합니다.
 
 ```
 mod/
