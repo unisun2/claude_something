@@ -1,0 +1,6 @@
+﻿l_english:
+ content_abdication_decision:0 "Content Abdication"
+ content_abdication_decision_desc:0 "I have achieved enough in this life. It is time to lay down my burdens and leave everything to [primary_heir.GetFirstName]."
+ content_abdication_decision_tooltip:0 "Hand everything over to your heir and step down, content."
+ content_abdication_decision_confirm:0 "It is time to step down"
+ content_abdication_decision_effect_tt:0 "All your titles, gold and artifacts pass to your heir, and you continue playing as them."
